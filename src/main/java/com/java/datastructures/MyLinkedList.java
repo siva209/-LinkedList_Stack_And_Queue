@@ -39,6 +39,25 @@ public class MyLinkedList<E> {
 			tail = node;
 		}
 	}
+	
+	/**
+	 * Usecase 4
+	 * Function inserts at a specified position in list
+	 * @param position
+	 * @param node
+	 */
+	public void insert(int position, INode<E> node) {
+		int count = 0;
+		INode<E> previousNode = null;
+		INode<E> currentNode = head;
+		while(count != position) {
+			count++;
+			previousNode = currentNode;
+			currentNode = currentNode.getNext();
+		}
+		previousNode.setNext(node);
+		node.setNext(currentNode);
+	}
 	public void printNodes() {
 		INode<E> tempNode = head;
 		while(tempNode.getNext() != null) {
@@ -54,8 +73,8 @@ public class MyLinkedList<E> {
 		MyNode<Integer> secondNode = new MyNode<Integer>(30);
 		MyNode<Integer> thirdNode = new MyNode<Integer>(70);
 		list.append(firstNode);
-		list.append(secondNode);
 		list.append(thirdNode);
+		list.insert(1, secondNode);
 		list.printNodes();
 	}
 }
