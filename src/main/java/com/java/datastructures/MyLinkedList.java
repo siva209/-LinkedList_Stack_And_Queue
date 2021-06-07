@@ -108,6 +108,26 @@ public class MyLinkedList<E> {
 		}
 		return isPresent;	
 	}
+	public int index(E item) {
+		int index = 0;
+		int count = 0;
+		INode<E> tempNode = head;
+		while(tempNode.getNext() != null) {
+			if(tempNode.getKey().equals(item)) {
+				index = count;
+				break;
+			}
+			else {
+				tempNode = tempNode.getNext();
+			}
+			count++;
+		}
+		if(tail.getKey().equals(item)) {
+			count++;
+			index = count;
+		}
+		return index;
+	}
 	public void printNodes() {
 		INode<E> tempNode = head;
 		while(tempNode.getNext() != null) {
@@ -122,10 +142,11 @@ public class MyLinkedList<E> {
 		MyNode<Integer> firstNode = new MyNode<Integer>(56);
 		MyNode<Integer> secondNode = new MyNode<Integer>(30);
 		MyNode<Integer> thirdNode = new MyNode<Integer>(70);
+		MyNode<Integer> fourthNode = new MyNode<Integer>(40);
 		list.append(firstNode);
 		list.append(thirdNode);
 		list.insert(1, secondNode);
-		list.popLast();
+		list.insert(list.index(secondNode.getKey())+1, fourthNode);
 		list.printNodes();
 	}
 }
