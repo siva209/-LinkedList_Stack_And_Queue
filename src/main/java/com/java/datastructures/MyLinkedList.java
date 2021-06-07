@@ -58,6 +58,16 @@ public class MyLinkedList<E> {
 		previousNode.setNext(node);
 		node.setNext(currentNode);
 	}
+	/**Usecase 5
+	 * Function returns the first element in the list
+	 * @return
+	 */
+	public E pop() {
+		INode<E> tempNode = head.getNext();
+		E key = head.getKey();
+		head = tempNode;
+		return key;
+	}
 	public void printNodes() {
 		INode<E> tempNode = head;
 		while(tempNode.getNext() != null) {
@@ -75,6 +85,7 @@ public class MyLinkedList<E> {
 		list.append(firstNode);
 		list.append(thirdNode);
 		list.insert(1, secondNode);
+		list.pop();
 		list.printNodes();
 	}
 }
