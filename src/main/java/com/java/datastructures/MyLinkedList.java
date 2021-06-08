@@ -1,9 +1,9 @@
 package com.java.datastructures;
 
-public class MyLinkedList<E> {
+public class LinkedList<E extends Comparable<E>> {
 	public INode<E> head;
 	public INode<E> tail;
-	public MyLinkedList() {
+	public LinkedList() {
 		this.head = null;
 		this.tail = null;
 	}
@@ -188,7 +188,7 @@ public class MyLinkedList<E> {
 	}
 	public static void main(String[] args)
 	{
-		MyLinkedList<Integer> list = new MyLinkedList<Integer>();
+		LinkedList<Integer> list = new LinkedList<Integer>();
 		MyNode<Integer> firstNode = new MyNode<Integer>(56);
 		MyNode<Integer> secondNode = new MyNode<Integer>(30);
 		MyNode<Integer> thirdNode = new MyNode<Integer>(70);
@@ -200,4 +200,5 @@ public class MyLinkedList<E> {
 		list.remove(fourthNode);
 		list.printNodes();
 	}
+}
 }
