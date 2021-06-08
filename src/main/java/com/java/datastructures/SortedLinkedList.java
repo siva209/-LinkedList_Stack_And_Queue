@@ -1,6 +1,6 @@
 package com.java.datastructures;
 
-public class SortedLinkedList<E extends Comparable<E>> { 
+public class SortedLinkedList<E extends Comparable<E>> {
 	public INode<E> head;
 	public INode<E> tail;
 	public SortedLinkedList() {
